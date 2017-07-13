@@ -23,4 +23,9 @@
     <string name="no_account">You have no accounts selected, please add new or choose existing</string>
     <string name="create">Create</string>
     <string name="zero_amount">Zero transactions not allowed</string>
+    <plurals name="transactions_count">
+        <item quantity="zero">No transactions</item>
+        <item quantity="one">1 transaction</item>
+        <item quantity="other">%d transactions</item>
+    </plurals>
 </resources>

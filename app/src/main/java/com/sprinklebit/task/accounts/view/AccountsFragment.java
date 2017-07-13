@@ -113,7 +113,7 @@ public class AccountsFragment extends BaseListFragment<Account, IAccountsPresent
 
         @Override
         public void onBindViewHolder(ViewHolder holder, Account item, int position) {
-            holder.bind(item);
+            holder.bind(getContext(), item);
         }
 
         static class ViewHolder extends RecyclerView.ViewHolder {
@@ -132,8 +132,10 @@ public class AccountsFragment extends BaseListFragment<Account, IAccountsPresent
                 ButterKnife.bind(this, itemView);
             }
 
-            void bind(Account account) {
+            void bind(Context context, Account account) {
                 name.setText(account.getName());
+                int transactionsCount = account.getTransactions().size();
+                transactions.setText(context.getResources().getQuantityString(R.plurals.transactions_count, transactionsCount, transactionsCount));
                 checked.setVisibility(account.isSelected() ? View.VISIBLE : View.GONE);
             }
 
